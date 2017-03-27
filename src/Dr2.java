@@ -3,24 +3,24 @@
  */
 
 
-public class dr2 {
+public class Dr2 {
     int[][] matrix;
     private int n;
     private int m;
     public static String size;
-    static dr2 mat_test; //= new dr2();
+
 
     public static void main (String args []) {
-       dr2 mat1 = new dr2();
-       dr2 mat2 = new dr2(5,5);
-       dr2 mat3 = new dr2(3,3);
+       Dr2 mat1 = new Dr2();
+       Dr2 mat2 = new Dr2(5,5);
+       Dr2 mat3 = new Dr2(3,3);
 
         //сумма матриц
-        mat3.summ();
+        mat3.summ(mat1);
         //разность матриц
         mat3.difference();
         //возврат единичной матрицы
-        dr2.single(5);
+        Dr2.single(5);
         System.out.println("---------------------------------------------");
         //метод печати элементов матриц
         mat3.veiw();
@@ -34,7 +34,7 @@ public class dr2 {
         //умножение: результат матрица (не очень понятно задание, что на что умножать)
         //вычисление определителя
         System.out.println("----------вычисление определителя---------");
-        System.out.println(dr2.determinant(true));
+        System.out.println(Dr2.determinant(true));
         System.out.println("---------------------------------------------");
         //ранг матрицы
         System.out.println(mat3.rang(mat3));
@@ -52,7 +52,7 @@ public class dr2 {
     public  void setN(int n){
         this.n = n;
     }
-    private dr2(){
+    private Dr2(){
         super();
         this.setM(3);
         this.setN(3);
@@ -60,7 +60,7 @@ public class dr2 {
         fill(true);
         size = this.getN() + " x " + this.getM();
     }
-    private dr2(int m,int n){
+    private Dr2(int m,int n){
         super();
         this.setM(m);
         this.setN(n);
@@ -81,12 +81,12 @@ public class dr2 {
             }
         }
     }
-    public dr2 summ(){
+    public Dr2 summ(Dr2 mats){
         //метод сумм
         //создаем матрицу по умолчанию 3х3
-        dr2 mats = new dr2();
+        //Dr2 mats = new Dr2();
         //матрицу результата
-        dr2 res = new dr2(getM(),getN());
+        Dr2 res = new Dr2(getM(),getN());
         //по правилам складывать можно только матрицы равных размеров, проверяем это
         if (mats.getM()==getM() && mats.getN()==getN()) {
             for (int i = 0; i < getM(); i++) {
@@ -97,12 +97,12 @@ public class dr2 {
         }
         return res;
     }
-    public dr2 difference(){
+    public Dr2 difference(){
         //метод разности аналогичен методу сумм
         //создаем матрицу по умолчанию 3х3
-        dr2 mats = new dr2();
+        Dr2 mats = new Dr2();
         //матрицу результата
-        dr2 res = new dr2(getM(),getN());
+        Dr2 res = new Dr2(getM(),getN());
         //по правилам складывать можно только матрицы равных размеров, проверяем это
         if (mats.getM()==getM() && mats.getN()==getN()) {
             for (int i = 0; i < getM(); i++) {
@@ -124,9 +124,9 @@ public class dr2 {
             System.out.println('\n');
         }
     }
-    public static dr2 single(int n){
+    public static Dr2 single(int n){
         //возврат единичной матрицы
-        dr2 res = new dr2(n,n);
+        Dr2 res = new Dr2(n,n);
 
 
             for (int i = 0; i < n; i++) {
@@ -143,9 +143,9 @@ public class dr2 {
         //метод возврата размерностей матриц
         System.out.println(size);
     }
-    public dr2 multiplier(int k){
+    public Dr2 multiplier(int k){
         //произведение матрицы на число
-        dr2 res = new dr2(getN(),getM());
+        Dr2 res = new Dr2(getN(),getM());
 
 
         for (int i = 0; i < n; i++) {
@@ -158,7 +158,7 @@ public class dr2 {
     }
     public static int determinant(boolean veiw){
         //создаем матрицу по умолчанию 3х3
-        dr2 mats = new dr2();
+        Dr2 mats = new Dr2();
         //на случай дальнейших вычеслений, заносим эту матриу во внешнию переменную
         //выведем для наглядности матрицу
         if (veiw==true) mats.veiw();
@@ -199,7 +199,7 @@ public class dr2 {
         }
         return result;
     }
-    public int rang(dr2 l){
+    public int rang(Dr2 l){
         boolean flsg=false;
         int R;
         for (int i = 0; i < l.matrix.length; i++) {
