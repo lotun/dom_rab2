@@ -93,7 +93,7 @@ public class Dr2 {
         return res;
     }
 
-    public void veiw() {
+    private void veiw() {
         //метод отображение
         for (int i = 0; i < getM(); i++) {
             for (int j = 0; j < getN(); j++) {
